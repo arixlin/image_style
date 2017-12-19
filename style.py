@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-from __future__ import print_function
 import sys
 
 sys.path.insert(0, 'src')
@@ -23,7 +22,7 @@ import cv2
 
 app = Flask(__name__)
 
-class Faster_style(object):
+class Faster_Style(object):
     def __init__(self):
         self._init_model()
 
@@ -63,7 +62,11 @@ class Faster_style(object):
         return _preds
 
     def faster_style(self, url):
+        """
 
+        :param url:
+        :return: _preds
+        """
         req = ul_request.urlopen(url)
         arr = np.asarray(bytearray(req.read()), dtype=np.uint8)
         self.image = cv2.imdecode(arr, -1)  # 'load it as it is'
